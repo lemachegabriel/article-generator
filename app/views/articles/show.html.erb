@@ -1,0 +1,21 @@
+<h1><%= @article.title %></h1>
+
+<% if @article.business_idea.any? %>
+  <ul>
+    <% @article.business_idea.each do |business_idea| %>
+      <li>
+        <h3><%= business_idea.name %></h3>
+        <p>Average Revenue: <%= business_idea.average_revenue %></p>
+        <p>Cost to Start: <%= business_idea.average_cost_to_start %></p>
+
+        <% if business_idea.section.any? %>
+          <ul>
+            <% business_idea.section.each do |section| %>
+              <li><%= section.text %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
